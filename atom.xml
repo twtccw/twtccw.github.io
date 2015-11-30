@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
+  <title>星空之旅</title>
+  <id>http://twtccw.github.io/</id>
+  <updated>2015-11-30T21:38:38+08:00</updated>
+  <subtitle>站在宇宙的暗角，遥望遥远的星空</subtitle>
+  <link href="http://twtccw.github.io/"></link>
+  <author>
+    <name>星空之旅</name>
+  </author>
+  <entry>
+    <title>Linux下生产力软件推荐</title>
+    <updated>1970-01-01T08:00:00+08:00</updated>
+    <id>tag:,1970-01-01:/twtccw.github.io/post/2015/11/30/first.html</id>
+    <content type="html">Linux是很多研究生以及科研工作者所常用的系统， 目前的linux易用性已经很好了，但是仍然可以通过好用的软件来提升使用体验以及工作效率</content>
+    <link href="http:/twtccw.github.io/post/2015/11/30/first.html"></link>
+    <author>
+      <name>徐骏</name>
+    </author>
+  </entry>
+  <entry>
+    <title>简洁的静态博客构建工具 —— 纸小墨（InkPaper）</title>
+    <updated>2015-11-06T10:00:00+08:00</updated>
+    <id>tag:,2015-11-06:/twtccw.github.io/post/2015/03/01/ink-blog-tool.html</id>
+    <content type="html">本博客由纸小墨+「Github」平台搭建而成，感谢纸小墨和「Github」。纸小墨（InkPaper）是一个使用GO语言编写的静态博客构建工具，可以快速搭建博客网站。优点是无依赖跨平台，配置简单构建快速，注重简洁易用与排版优化</content>
+    <link href="http:/twtccw.github.io/post/2015/03/01/ink-blog-tool.html"></link>
+    <author>
+      <name>徐骏</name>
+    </author>
+  </entry>
+</feed>
