@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+        <meta name="keywords" content="discuzx,论坛,">
+        <meta name="description" content="使用discuzX搭建论坛">
+        <link rel="stylesheet" href="/bundle/index.css">
+        <title>使用discuzX搭建论坛</title>
+    </head>
+    <body>
+        <article class="container">
+            <a class="index" href="/">junx.fits的星空之旅</a>
+<ul class="menu">
+    <li class="menu-item"><a href="/archive.html">归档</a></li>
+    <li class="menu-item"><a href="/tag.html">标签</a></li>
+    <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+</ul>
+
+            <article class="main article">
+                <h1 class="title">使用discuzX搭建论坛</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/me.gif);"></span>
+                    <a class="name" href="/about.me.html">twtccw</a>
+                    <span class="date" data-time="1438243930">
+                        <span class="from"></span>
+                        
+                    </span>
+                    <span class="tags"><a class="tag" href="/tag/discuzx/index.html">discuzx</a><a class="tag" href="/tag/%e8%ae%ba%e5%9d%9b/index.html">论坛</a></span>
+                </section>
+                <article class="content"><ol>
+<li>bbs的安装
+#This part is written by  ZhuShifu
+参考：<a href="http://www.discuz.net/thread-3258186-1-1.html">http://www.discuz.net/thread-3258186-1-1.html</a>
+在“CentOS 7 中安装LAMP，通过YUM“之后。</li>
+</ol>
+
+<p>一、[参照<a href="http://wuli03960405.blog.51cto.com/1470785/486291/，创建数据库](">http://wuli03960405.blog.51cto.com/1470785/486291/，创建数据库](</a>)</p>
+
+<pre><code>root@localhost ~]# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 5.5.40-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2014, Oracle, Monty Program Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]&gt; create database bbsdb;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]&gt; grant all on bbsdb.* to bbsuser@localhost identified by &quot;123456&quot;;#此处123456为你所设置的bbsuser的密码
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]&gt; quit
+Bye
+</code></pre>
+
+<p>二、下载Discuz代码，解压，把文件夹upload内的文件拷贝到www的root目录（或某子目录）
+三、在浏览器中输入IP地址，开始安装，选择新建，到下一步会出现权限问题,
+获得需要设置权限的个目录和文件的列表，存为<code>chmod.list</code>
+然后运行</p>
+
+<pre><code>for f in $(cat chmod.list)
+do
+{ [ -f &quot;$f&quot; ] &amp;&amp; chmod 766 &quot;$f&quot; ; } || { [ -d &quot;$f&quot; ] &amp;&amp; chmod 777 &quot;$f&quot; ; }
+done
+</code></pre>
+
+<p>四、解决SELinux的问题
+网络上得教程几乎都是通过
+setenforce 0
+临时关闭SELinux发挥作用来跳过这一步骤，但这是一个需要面对和解决的问题。</p>
+
+<p>参考：
+<a href="http://www.serverlab.ca/tutorials/linux/administration-linux/troubleshooting-selinux-centos-red-hat/">http://www.serverlab.ca/tutorials/linux/administration-linux/troubleshooting-selinux-centos-red-hat/</a>
+<a href="http://www.ahlinux.com/apache/1334.html">http://www.ahlinux.com/apache/1334.html</a></p>
+
+<p>甚至：<a href="http://wiki.centos.org/zh/HowTos/SELinux">http://wiki.centos.org/zh/HowTos/SELinux</a></p>
+
+<pre><code>yum install setroubleshoot setools
+sealert -a /var/log/audit/audit.log &gt; trouble.log
+在trouble.log总寻找解决方法：
+semanage fcontext -a -t httpd_sys_rw_content_t /opt/www
+restorecon -v /opt/www
+setsebool -P httpd_unified 1
+grep httpd /var/log/audit/audit.log | audit2allow -M mypol
+semodule -i mypol.pp
+接下来还有一些步骤是更改Discuz源代码的安全上下文：
+semanage fcontext -a -t httpd_sys_content_t '/opt/www(/.*)?'
+restorecon -Rv /opt/www
+</code></pre>
+
+<p>五、完成安装
+删除install/index.php
+六、进一步修改权限.</p>
+
+<ol>
+<li>bbs的重装
+&mdash;&mdash;&mdash;
+参考：<a href="http://zhidao.baidu.com/question/309236972.html/">http://zhidao.baidu.com/question/309236972.html/</a></li>
+<li>下载一个新的安装包，找到upload目录，解压出install文件夹。</li>
+<li>删除原站点FTP的data/install.lock文件，把install文件夹上传到论坛的根目录，
+访问站点的install即(addressofyoursite/install)可开始安装。</li>
+<li>安装到设置数据库这里时注意不要使用原数据库名，随便换个名字,我这里用的<code>bbsdb_new</code></li>
+<li>修改config/config_global.php，将bbsdb_new改为原来的数据库bbsdb，同样修改uc_server/data/config.inc.php的UC_DBNAME常量为bbsdb. 将里面的bbsdb_new全部替换位bbsdb
+&mdash;&mdash;&mdash;&ndash;
+服务器开机后出现database error, 有时候这种情况是mariadb没有正确启动所导致，重启系统可解决，
+与网上的问题所不同的是，使用数据库启动命令并不能正确启动数据库</li>
+</ol>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/me.gif);"></div>
+                    <a class="name" href="/about.me.html">twtccw</a>
+                    <div class="intro">现已装备物理学圣剑</div>
+                </section>
+                <section class="recommend">
+                    
+                    <section class="nav prev more">
+                        <div class="head">上篇文章</div>
+                        <a class="link" href="/post/2015/11/30/first.html">Linux下生产力软件推荐</a>
+                    </section>
+                    
+                    
+                    <section class="nav next more">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/post/2015/03/01/ink-blog-tool.html">简洁的静态博客构建工具 —— 纸小墨（InkPaper）</a>
+                    </section>
+                    
+                </section>
+                <section id="disqus_thread"></section>
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="license">
+        <a rel="license" href="//creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution 4.0 International license">
+          <img src="/images/cc88X31.png" alt="License" data-pin-nopin="true" />
+        </a>
+    </span>
+    <span class="copyright">
+        junx.fits的星空之旅 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.inkpaper.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//twtccw.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+</html>

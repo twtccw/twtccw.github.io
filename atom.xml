@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>junx.fits的星空之旅</title>
   <id>http://www.twtccw.com/</id>
-  <updated>2015-12-04T11:08:04+08:00</updated>
+  <updated>2015-12-13T00:43:26+08:00</updated>
   <subtitle>站在宇宙的暗角，遥望遥远的星空</subtitle>
   <link href="http://www.twtccw.com/"></link>
   <author>
@@ -13,6 +13,16 @@
     <id>tag:,1970-01-01:/www.twtccw.com/post/2015/11/30/first.html</id>
     <content type="html">Linux是很多研究生以及科研工作者所常用的系统， 目前的linux易用性已经很好了，但是仍然可以通过好用的软件来提升使用体验以及工作效率</content>
     <link href="http:/www.twtccw.com/post/2015/11/30/first.html"></link>
+    <author>
+      <name>twtccw</name>
+    </author>
+  </entry>
+  <entry>
+    <title>使用discuzX搭建论坛</title>
+    <updated>1970-01-01T08:00:00+08:00</updated>
+    <id>tag:,1970-01-01:/www.twtccw.com/post/2015/07/30/bbs维护.html</id>
+    <content type="html">导师希望搭建一个论坛供组内成员相互交流，于是。。。</content>
+    <link href="http:/www.twtccw.com/post/2015/07/30/bbs维护.html"></link>
     <author>
       <name>twtccw</name>
     </author>
