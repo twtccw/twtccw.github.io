@@ -104,9 +104,8 @@ restorecon -Rv /opt/www
 1. 下载一个新的安装包，找到upload目录，解压出install文件夹。
 2. 删除原站点FTP的data/install.lock文件，把install文件夹上传到论坛的根目录，
 访问站点的install即(addressofyoursite/install)可开始安装。
-3. 安装到设置数据库这里时注意不要使用原数据库名，随便换个名字,我这里用的<code>bbsdb_new</code></p>
-
-<h2>4. 修改config/config_global.php，将bbsdb_new改为原来的数据库bbsdb，同样修改uc_server/data/config.inc.php的UC_DBNAME常量为bbsdb. 将里面的bbsdb_new全部替换位bbsdb</h2>
+3. 安装到设置数据库这里时注意不要使用原数据库名，随便换个名字,我这里用的<code>bbsdb_new</code>
+4. 修改config/config_global.php，将bbsdb_new改为原来的数据库bbsdb，同样修改uc_server/data/config.inc.php的UC_DBNAME常量为bbsdb. 将里面的bbsdb_new全部替换位bbsdb</p>
 
 <p>服务器开机后出现database error, 有时候这种情况是mariadb没有正确启动所导致，重启系统可解决，
 与网上的问题所不同的是，使用数据库启动命令并不能正确启动数据库</p>
