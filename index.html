@@ -29,6 +29,23 @@
                 <ul class="article-list">
                     
                     <li class="article">
+                        <a class="title" href="/post/2015/12/20/cmd.html">为博客添加公式支持</a>
+                        <div class="cover" style="background-image:url(/images/MathJax.png);"></div>
+                        <section class="preview">作为一名科研人员，公式也是经常需要打交道的，所以为博客添加来自「MathJax」的「LaTeX」公式语法支持。。。...</section>
+                        <section class="info">
+                            <span class="avatar" style="background-image: url(/images/me.gif);"></span>
+                            <a class="name" href="/about.me.html">twtccw</a>
+                            <span class="date" data-time="1450612330">
+                                <span class="from"></span>
+                                
+                            </span>
+                            <span class="tags">
+                            <a class="tag" href="/tag/markdown/index.html">markdown</a><a class="tag" href="/tag/%e8%af%ad%e6%b3%95/index.html">语法</a>
+                            </span>
+                        </section>
+                    </li>
+                    
+                    <li class="article">
                         <a class="title" href="/post/2015/11/30/first.html">Linux下生产力软件推荐</a>
                         <div class="cover" style="background-image:url(/images/linux.png);"></div>
                         <section class="preview">Linux是很多研究生以及科研工作者所常用的系统， 目前的linux易用性已经很好了，但是仍然可以通过好用的软件来提升使用体验以及工作效率...</section>
@@ -100,6 +117,21 @@
         </script>
     </span>
     <span class="publish">Powered by <a href="http://www.inkpaper.io/" target="_blank">Ink</a></span>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$', '$$']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    messageStyle: "none",
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </footer>
 
     </body>

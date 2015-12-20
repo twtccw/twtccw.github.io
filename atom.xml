@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>junx.fits的星空之旅</title>
   <id>http://www.twtccw.com/</id>
-  <updated>2015-12-13T01:02:19+08:00</updated>
+  <updated>2015-12-20T20:49:32+08:00</updated>
   <subtitle>站在宇宙的暗角，遥望遥远的星空</subtitle>
   <link href="http://www.twtccw.com/"></link>
   <author>
     <name>junx.fits的星空之旅</name>
   </author>
+  <entry>
+    <title>为博客添加公式支持</title>
+    <updated>1970-01-01T08:00:00+08:00</updated>
+    <id>tag:,1970-01-01:/www.twtccw.com/post/2015/12/20/cmd.html</id>
+    <content type="html">作为一名科研人员，公式也是经常需要打交道的，所以为博客添加来自「MathJax」的「LaTeX」公式语法支持。。。</content>
+    <link href="http:/www.twtccw.com/post/2015/12/20/cmd.html"></link>
+    <author>
+      <name>twtccw</name>
+    </author>
+  </entry>
   <entry>
     <title>Linux下生产力软件推荐</title>
     <updated>1970-01-01T08:00:00+08:00</updated>
