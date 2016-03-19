@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
-  <title>junx.fits的星空之旅</title>
+  <title>junx.fits的博客</title>
   <id>http://www.twtccw.com/</id>
-  <updated>2016-03-20T01:54:53+08:00</updated>
-  <subtitle>君子生非异也，善假于物也！</subtitle>
+  <updated>2016-03-20T02:00:34+08:00</updated>
+  <subtitle>两样东西，人们越是经常持久对之凝神思索，它们就越是使内心充满常新而日增的惊奇和敬畏：我头上的星空和我心中的道德律。</subtitle>
   <link href="http://www.twtccw.com/"></link>
   <author>
-    <name>junx.fits的星空之旅</name>
+    <name>junx.fits的博客</name>
   </author>
   <entry>
     <title>Linux下配置python工作环境</title>
