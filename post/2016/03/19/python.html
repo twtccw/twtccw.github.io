@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+        <meta name="keywords" content="Linux,Python,科研,">
+        <meta name="description" content="Linux下配置python工作环境">
+        <link rel="stylesheet" href="/bundle/index.css">
+        <title>Linux下配置python工作环境</title>
+    </head>
+    <body>
+        <article class="container">
+            <a class="index" href="/">junx.fits的星空之旅</a>
+<ul class="menu">
+    <li class="menu-item"><a href="/archive.html">归档</a></li>
+    <li class="menu-item"><a href="/tag.html">标签</a></li>
+    <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+</ul>
+
+            <article class="main article">
+                <h1 class="title">Linux下配置python工作环境</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/me.gif);"></span>
+                    <a class="name" href="/about.me.html">twtccw</a>
+                    <span class="date" data-time="1458402730">
+                        <span class="from"></span>
+                        
+                    </span>
+                    <span class="tags"><a class="tag" href="/tag/Linux/index.html">Linux</a><a class="tag" href="/tag/Python/index.html">Python</a><a class="tag" href="/tag/%e7%a7%91%e7%a0%94/index.html">科研</a></span>
+                </section>
+                <article class="content"><h2>安装pyenv</h2>
+
+<p>Python由于历史原因存在2.7+以及3.4+两个不兼容的版本，但是两者往往在实际中两者都会用到，<a href="https://github.com/yyuu/pyenv">pyenv</a>就是一个能让用户自由切换版本的解决方案，
+<strong>pyenv</strong> 官方一行命令安装方案</p>
+
+<pre><code class="language-bash">$ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+</code></pre>
+
+<p>如此种方法安装报错，可参照下面这篇文章安装</p>
+
+<p><a href="http://www.jianshu.com/p/5c7a9892e60f">简书</a></p>
+
+<h2>安装Anaconda以及各个python版本</h2>
+
+<ul>
+<li>查看pyenv可安装的python软件包，其中包含了python以及anaconda等常用包</li>
+</ul>
+
+<pre><code class="language-bash">$ pyenv install -list
+</code></pre>
+
+<ul>
+<li>安装python以及anaconda</li>
+</ul>
+
+<pre><code class="language-bash">$ pyenv install anaconda3-2.5.0 #这里是基于python3.0版本的anaconda包
+$ pyenv install anaconda2-2.5.0 #这里是基于python2.7版本的anaconda包
+$ pyenv install 2.7.11          #安装2.7版本python
+$ pyenv install 3.5.1           #安装3.5版本python
+</code></pre>
+
+<ul>
+<li>查看已经安装的python包</li>
+</ul>
+
+<pre><code class="language-bash">$ pyenv versions
+</code></pre>
+
+<p>会在屏幕打印出：</p>
+
+<pre><code>  system
+* 2.7.11 (set by /home/junx/.pyenv/version)
+  3.5.1
+  anaconda2-2.5.0
+  anaconda3-2.5.0
+</code></pre>
+
+<p>星号指代目前的python版本</p>
+
+<h2>在不同版本之间切换</h2>
+
+<p>切换分为两种，一种是全局切换，一种是局域切换，局域切换是指比如在整体为3.5的python环境下，设置当前终端为2.7环境。在不同环境下安装的软件，如需运行也须切换到该环境下。
+- 全局切换</p>
+
+<pre><code class="language-bash">$ pyenv globe anaconda3-2.5.0
+</code></pre>
+
+<p>局域切换</p>
+
+<pre><code class="language-bash">$ pyenv local anaconda2.2.5.0
+</code></pre>
+
+<h2>安装spyder</h2>
+
+<p>spyder是为科学计算开发的python客户端，类似于windows下的visual studio,但是仅支持python语言，自动补全功能十分好用，而且从anaconda环境下安装后可以不用配置，可以直接调用anaconda包里面的库。集合代码编辑，代码调试，变量查看等诸多功能于一身，十分好用，强烈推荐，安装方法：</p>
+
+<pre><code class="language-bash">$ conda install spyder
+</code></pre>
+
+<p>最后
+&gt; Life is tough, use python.</p>
+
+<p>至此，基本的python科研工作环境配置完成。</p>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/me.gif);"></div>
+                    <a class="name" href="/about.me.html">twtccw</a>
+                    <div class="intro">现已装备物理学圣剑</div>
+                </section>
+                <section class="recommend">
+                    
+                    
+                    <section class="nav next">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/post/2015/12/20/cmd.html">为博客添加公式支持</a>
+                    </section>
+                    
+                </section>
+                <section id="disqus_thread"></section>
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="license">
+        <a rel="license" href="//creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution 4.0 International license">
+          <img src="/images/cc88X31.png" alt="License" data-pin-nopin="true" />
+        </a>
+    </span>
+    <span class="copyright">
+        junx.fits的星空之旅 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.inkpaper.io/" target="_blank">Ink</a></span>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$', '$$']],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    messageStyle: "none",
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+    <script type="text/javascript">
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//twtccw.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+</html>

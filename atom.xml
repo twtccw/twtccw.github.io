@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
   <title>junx.fits的星空之旅</title>
   <id>http://www.twtccw.com/</id>
-  <updated>2015-12-22T23:07:58+08:00</updated>
+  <updated>2016-03-20T01:53:46+08:00</updated>
   <subtitle>君子生非异也，善假于物也！</subtitle>
   <link href="http://www.twtccw.com/"></link>
   <author>
     <name>junx.fits的星空之旅</name>
   </author>
+  <entry>
+    <title>Linux下配置python工作环境</title>
+    <updated>1970-01-01T08:00:00+08:00</updated>
+    <id>tag:,1970-01-01:/www.twtccw.com/post/2016/03/19/python.html</id>
+    <content type="html">目前python在科研领域用途广泛，其中Anaconda是一个集合多个工具的Python应用包，被广泛用于科研领域以及科学计算领域。本文介绍Linux下python工作环境的配置</content>
+    <link href="http:/www.twtccw.com/post/2016/03/19/python.html"></link>
+    <author>
+      <name>twtccw</name>
+    </author>
+  </entry>
   <entry>
     <title>为博客添加公式支持</title>
     <updated>1970-01-01T08:00:00+08:00</updated>
